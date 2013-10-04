@@ -1,12 +1,12 @@
 markdown: rdiscount
 permalink: /:year/:month/:day/:title/
 url: http://scola.github.io
-name:scola
+name: scola的个人笔记
 author: scola
-duoshuo:scola
-qq: 454651583
-email: scola@gmail.com
-weibo: 1958231132
+duoshuo: scola的个人笔记
+qq: 325862401
+email: shaozheng.wu@gmail.com
+weibo: 1894900993
 github: scola
 pygments: true
 safe: true

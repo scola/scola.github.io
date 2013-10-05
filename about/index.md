@@ -13,7 +13,7 @@ comments: no
 {% if site.qq %}
 ＱＱ：[{{ site.qq }}](tencent://message/?uin={{ site.qq }})
 {% endif %}
-Twitter: [@{{ site.twitter }}](https://twitter.com/{{site.twitter }} 
+Twitter: [@{{ site.twitter }}](https://twitter.com/{{site.twitter }}) 
 
 网站：[{{ site.name }}]({{ site.url }})
 

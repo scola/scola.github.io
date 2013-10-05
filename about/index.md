@@ -14,13 +14,13 @@ comments: no
 ＱＱ：[{{ site.qq }}](tencent://message/?uin={{ site.qq }})
 {% endif %}
 
-Twitter: [@{{ site.twitter }}](https://twitter.com/{{site.twitter }}) 
+Twitter：[@{{ site.twitter }}](https://twitter.com/{{site.twitter }}) 
 
 网站：[{{ site.name }}]({{ site.url }})
 
 邮箱：[{{ site.email }}](mailto:{{ site.email }})
 
-GitHub : [http://github.com/{{ site.github }}](http://github.com/{{ site.github }})
+GitHub: [http://github.com/{{ site.github }}](http://github.com/{{ site.github }})
 
 
 

@@ -21,6 +21,5 @@ Twitter: [@{{ site.twitter }}](https://twitter.com/{{site.twitter }})
 
 GitHub : [http://github.com/{{ site.github }}](http://github.com/{{ site.github }})
 
-----
 
 

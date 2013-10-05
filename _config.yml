@@ -11,5 +11,5 @@ github: scola
 pygments: true
 safe: true
 paginate: 15
-about: ""
+about: scola的个人笔记fork from Yonsm的个人博客，主要用于记录折腾笔记，以便下次重复操作
 show_drafts: false

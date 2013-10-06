@@ -1,12 +1,8 @@
 ---
 layout: post
 title: "开始用博客做记录"
-categories: 日志
-- 
+category: 日志
 tags: blog jekyll markdown
-- 
-
-
 ---
 已经不记得之前什么时候在新浪上开过博客，后来可能是因为放了凸墙软件的链接导致博客直接被新浪给删除了，自此明白了国内平台的博客的不靠谱，任何数据都应该抓在自己手里，备份也很重要。
 
@@ -16,5 +12,5 @@ tags: blog jekyll markdown
 
 开始准备做记录了，到底用什么工具呢，考虑过tumblr，现成的博客系统，很轻松直接开始写就行了，数据虽然没在我手上，但是国外的服务应该有节操的多，最多被墙，不会被删，但是有点不想在线写，安装一个语法高亮的插件也有问题。最终还是放弃了tumblr。
 
-平时逛一下论坛，看blog，发现jekyll@github是个不错的选择。直接fork了[Yonsm的博客程序](https://github.com/Yonsm/NET),有需要写博客的朋友也可以直接fork他的程序，简单修改下就可以开始写了,开始学习用markdown写博客做记录了
+平时逛一下论坛，看blog，发现jekyll@github是个不错的选择。直接fork了[Yonsm的博客程序](https://github.com/Yonsm/NET),有需要写博客的朋友也可以直接fork他的程序，简单修改下就可以开始写了,开始学习用markdown写博客做记录了^_^
 

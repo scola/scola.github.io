@@ -1,5 +1,5 @@
 markdown: rdiscount
-permalink: /:year/:month/:day/:title/
+permalink: /:title/
 url: http://scola.github.io
 name: scola的个人笔记
 author: scola
@@ -10,6 +10,6 @@ twitter: wushaozheng
 github: scola
 pygments: true
 safe: true
-paginate: 15
+paginate: 20
 about: scola的个人笔记fork from [Yonsm的个人博客](https://github.com/Yonsm/NET)，主要用于记录折腾笔记，以便下次重复操作,也记录一些生活感想和琐事
 show_drafts: false

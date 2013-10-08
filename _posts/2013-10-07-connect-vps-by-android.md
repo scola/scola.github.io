@@ -1,6 +1,6 @@
 ---
 layout: post 
-title: "以android为跳板登陆VPS"
+title: "以android为跳板使用移动网络登陆VPS"
 category: 日志
 tags: android SSH VPS
 ---

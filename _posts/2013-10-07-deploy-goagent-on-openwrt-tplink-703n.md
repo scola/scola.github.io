@@ -6,7 +6,7 @@ tags: goagent openwrt router linux
 ---
 之前学习使用[goagent](https://code.google.com/p/goagent/)的使用的时候，看过[goagnet的wiki](https://code.google.com/p/goagent/w/list),发现可以将goagent部署在路由器上，可以让连接路由器的所有设备自动凸墙，无需在每个设备上安装代理软件，所以还是值得折腾一下的。
 
-最近为了实现一个想法，需要一款开源系统的路由器，由于我也是一个linux小白用户，所以尽量选取大众一点且资料丰富的路由器系统和设备。从小虾的这篇[在路由器上写CMCC自动登录验证脚本](http://xiaoxia.org/2012/04/28/mini-router-auto-login-cmcc/)了解到TP-Link 703n这款路由器，在他推荐的那家淘宝店买来玩了下。店家已经刷好了openwrt系统，也不用自己刷机担心成砖了，动手安装
+最近为了实现一个想法，需要一款开源系统的路由器，由于我也是一个linux小白用户，所以尽量选取大众一点且资料丰富的路由器系统和设备。从小虾的这篇[在路由器上写CMCC自动登录验证脚本](http://xiaoxia.org/2012/04/28/mini-router-auto-login-cmcc/)了解到TP-Link 703n这款路由器，在他推荐的那家淘宝店买来玩了下。店家已经刷好了[openwrt](https://openwrt.org/)系统，也不用自己刷机担心成砖了，动手安装
 
 ###挂载U盘
 

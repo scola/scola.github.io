@@ -18,7 +18,7 @@ fdisk /dev/sda
 将U盘插在路由器上，开始挂载U盘
 {% highlight sh  %}
 mkdir /mnt/sdc1
-mount /mnt/sdc1 /dev/sda1
+mount /dev/sda1 /mnt/sdc1
 {% endhighlight %}
 运行df -h就会发现U盘已经挂载成功了
 {% highlight sh  %}
@@ -97,6 +97,57 @@ export PATH=/bin:/sbin:/usr/bin:/usr/sbin:/mnt/sdc1/opt/usr/bin
 export LD_LIBRARY_PATH=/mnt/sdc1/opt/usr/lib/libssl-thread-safe
 {% endhighlight %}
 现在goagent是不是可以稳定运行了，我这运行了一整天一切正常。
+###执行开机启动goagent
+有两种方法可以执行开机启动，比较简单的一种是在/etc/rc.local中添加要执行的语句 。还有一种方法是在/etc/init.d/中建立启动脚本，我也是新学的，就随便选了第二种方法。
+{% highlight sh %}
+root@OpenWrt:/etc/init.d# cat goagent 
+#!/bin/sh /etc/rc.common  
+# /init.d/my-plugin  
+START=99  
+
+start() {  
+    . /etc/profile
+    /opt/usr/bin/python /mnt/sdc1/Tools/Downloads/goagent-2.0/local/proxy.py  
+}  
+   
+stop() {  
+    echo goagent stoped   
+}  
+
+{% endhighlight %}
+主要开机启动不会载入/etc/profile，这里必须在start里要首先载入
+{% highlight sh %}
+. /etc/profile
+{% endhighlight %}
+我之前没有载入也碰到了很多问题，比如在启动脚本里添加python /mnt/sdc1/Tools/Downloads/goagent-2.0/local/proxy.py根本不会运行，因为profile没有载入，导致python的环境变量没有加入。此时根本不会运行python，我又完整的添加了python的路径去执行 /opt/usr/bin/python /mnt/sdc1/Tools/Downloads/goagent-2.0/local/proxy.py ,此时重启路由后goagent终于可以运行了。但是不到一分钟，goagent就终止运行。打开系统日志发现之前碰到的那个错误
+>OpenWrt user.info sysinit: python: md_rand.c: 322: ssleay_rand_add: Assertion `md_c[1] == md_count[1]' failed.'
+突然明白了之前添加到profile的
+{% highlight sh %}
+export LD_LIBRARY_PATH=/mnt/sdc1/opt/usr/lib/libssl-thread-safe
+{% endhighlight %}
+没有起作用，说明开机必须要载入profile。关于怎么载入，我通过google找到了[OpenWRT: Start a python script at boot time ](http://thisoldgeek.blogspot.com/2013/03/openwrt-start-python-script-at-boot-time.html)。创建好脚本后创建链接
+{% highlight sh %}
+ln -s /etc/init.d/goagent /etc/rc.d/S99goagent
+{% endhighlight %}
+此时重启路由后，goagent就自动运行了。只需要在电脑上设置好代理地址：路由器的IP和端口8087就可以科学上网了,我这是用的firefox+autoproxy。
+###消除副作用
+说点和主题无关的，我在一系列的安装和配置中也不清楚动了哪根神经，导致我在电脑用浏览器登录路由器页面一直打不开，之前是没有问题的。于是ssh到路由器
+{% highlight sh %}
+netstat -tulpn
+{% endhighlight %}
+发现80端口没有监听，当然就没法通过http://192.168.1.1 登录到路由器，于是手动执行
+{% highlight sh %}
+./uhttpd -p 80 -h /www
+{% endhighlight %}
+可以访问http://192.168.1.1 来访问路由器了。再将这条命令加入开机启动，直接编辑/etc/rc.local 就行了。
+###小结
+安装和配置中可能会遇到很多问题，大部分通过google都能找到解决方法。我将整个过程记录下来，也希望能帮到和我遇到相同问题的人。现在连接路由器的设备仍需要设置代理地址才能凸墙，android上无法设置代理，所以仍需要继续配置路由器达到客户端零配置，这里有一篇[自动转发特定网站到路由器GoAgent，实现客户端零配置](http://yonsm.net/zero-client-config-with-goagent-router/)可以参考.  
 
 
-
+###参考链接
+  * goagent官方网站[https://code.google.com/p/goagent/](https://code.google.com/p/goagent/)  
+  * goagent在windows下一键使用[http://crater.herokuapp.com/](http://crater.herokuapp.com/)  
+  * WR703N OpenWrt 配置流程[https://gist.github.com/ninehills/2627163](https://gist.github.com/ninehills/2627163)  
+  * TP-WR703N U 盘扩容[http://blog.cloverstd.com/703n-USB-disk.html](http://blog.cloverstd.com/703n-USB-disk.html)  
+  * GoAgent在OpenWRT路由里面运行一段时间后自动退出了[https://code.google.com/p/goagent/issues/detail?id=2781#makechanges](https://code.google.com/p/goagent/issues/detail?id=2781#makechanges)  
+  * [我使用的goagent版本下载地址](https://dl.dropboxusercontent.com/s/jpehxdhjn5yb9uy/goagent-2.0.tar.gz?token_hash=AAH5IE1dvHCrCrtTpnkeOkjlbK2Imaf_bLtJMR6oCH-Q4A&dl=1)

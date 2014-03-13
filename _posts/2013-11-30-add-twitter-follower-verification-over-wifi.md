@@ -13,7 +13,7 @@ iptables -t nat -D PREROUTING -s 192.168.1.237 -p tcp --dport 80 -j DNAT  --to-d
 {% endhighlight %}
 其实懂点网络的朋友可以使用代理或者VPN跳过限制，根本不需要登录验证，但是直接认证是非常简单的，还帮你翻了墙
 ###认证推友
-使用twitter的api[https://dev.twitter.com/docs/api/1.1/get/followers/list](https://dev.twitter.com/docs/api/1.1/get/followers/list)来获得所有的follower，关于怎么使用twitter api，我使用了[这篇blog](thomassileo.com/blog/2013/01/25/using-twitter-rest-api-v1-dot-1-with-python/)中的代码，api文档中说一次只能获得最新的20个follower，所以还需要调整index改善代码，通过用户输入的twitter用户名来匹配twitter api返回的twitter follower，如果是follower，解除重定向限制，如果不是，给出提示，用户可以从认证页面点击[**立即关注**](https://twitter.com/wushaozheng)跳转到你的twitter页面，从而用户可以完成注册，登录，关注等。所以你必须先配置好路由器使客户端零配置翻墙，可以参考我的上一篇[在openwrt路由器上部署代理，客户端零配置FQ](http://scola.github.io/deploy-proxy-on-openwrt--client-need-not-to-set/),如果客户端访问不了twitter页面，所有的这一切都是毫无意义的，另外api.twitter.com也是被墙的，所以将其加入hosts防止dns污染，还可加快解析速度
+使用twitter的api[https://dev.twitter.com/docs/api/1.1/get/friendships/lookup](https://dev.twitter.com/docs/api/1.1/get/friendships/lookup)来查询两个twitter用户的好友关系，关于怎么使用twitter api，我使用了[这篇blog](thomassileo.com/blog/2013/01/25/using-twitter-rest-api-v1-dot-1-with-python/)中的代码，通过用户输入的twitter用户名来匹配twitter api返回的twitter friendship，如果是friend，解除重定向限制，如果不是，给出提示，用户可以从认证页面点击[**立即关注**](https://twitter.com/wushaozheng)跳转到你的twitter页面，从而用户可以完成注册，登录，关注等。所以你必须先配置好路由器使客户端零配置翻墙，可以参考我的上一篇[在openwrt路由器上部署代理，客户端零配置FQ](http://scola.github.io/deploy-proxy-on-openwrt--client-need-not-to-set/),如果客户端访问不了twitter页面，所有的这一切都是毫无意义的，另外api.twitter.com也是被墙的，所以将其加入hosts防止dns污染，还可加快解析速度
 {% highlight sh %}
 root@OpenWrt:/etc# cat hosts 
 127.0.0.1 localhost

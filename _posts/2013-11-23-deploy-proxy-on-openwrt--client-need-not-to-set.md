@@ -4,7 +4,7 @@ title: "在openwrt路由器上部署代理，客户端零配置FQ"
 category: 日志
 tags: openwrt goagent shadowsocks dnsproxy chnroute gfw
 ---
-之前在openwrt的路由器上安装了goagent，但是仍然需要浏览器设置代理，使用iptables来进行端口转发好像只能代理http的流量，对于https好像不行，我这个小白也不懂原理，不知道最新版是否可以，有空试试，于是想到用另一个神器[shadowsocks](http://shadowsocks.org/)试试，于是在[这里](http://buildbot.sinaapp.com)下载了已经编译好的ipk安装在路由器上，配置好shadowsocks的配置文件，所以要玩这个必须要知道怎么使用shadowsocks来凸墙，需要有自己的VPS，如果没有的话，[v2ex.com](https://v2ex.com/go/shadowsocks)有很多人共享自己的shadowsocks给网友用，具体怎么配置请参考[SHADOWSOCKS的wiki](https://github.com/clowwindy/shadowsocks/wiki-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E),怎么配置端口转发，请参考[https://github.com/madeye/shadowsocks-libev#advanced-usage](https://github.com/madeye/shadowsocks-libev#advanced-usage),我也会在本文末尾给出我所有的配置文件，我建议所有的这些最好先在linux系统的电脑上试验，然后在照搬到路由器上  
+之前在openwrt的路由器上安装了goagent，但是仍然需要浏览器设置代理，使用iptables来进行端口转发好像只能代理http的流量，对于https好像不行，我这个小白也不懂原理，不知道最新版是否可以，有空试试，于是想到用另一个神器[shadowsocks](http://shadowsocks.org/)试试，于是在[这里](http://buildbot.sinaapp.com)下载了已经编译好的ipk安装在路由器上，配置好shadowsocks的配置文件，所以要玩这个必须要知道怎么使用shadowsocks来凸墙，需要有自己的VPS，如果没有的话，[v2ex.com](https://v2ex.com/go/shadowsocks)有很多人共享自己的shadowsocks给网友用，具体怎么配置请参考[SHADOWSOCKS的wiki](https://github.com/clowwindy/shadowsocks/wiki-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E),怎么配置端口转发，请参考[https://github.com/madeye/shadowsocks-libev#advanced-usage](https://github.com/madeye/shadowsocks-libev#advanced-usage),我也会在本文末尾给出我所有的配置文件，我建议所有的这些最好先在linux系统的电脑上试验，然后在照搬到路由器上 
 {% highlight sh %}
 root@OpenWrt:/mnt/sdc1/Tools/shadowsocks# cat shadowsocks-goagent.sh 
 #!/bin/sh

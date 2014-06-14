@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "update twittrouter about auth and arp method"
+title: "更新twittrouter，增加授权模式和去除对net-tools-arp的依赖"
 category: 日志
 tags: openwrt twittrouter gfw shadowsocks
 ---
@@ -15,7 +15,7 @@ opkg install http://crater.herokuapp.com/uploads/twittrouter_0.1.2-1_ar71xx.ipk
 {% highlight sh %}
 twittrouter -h   #查看使用方法 
 {% endhighlight %}
-因为twitter api被墙，需要使用shadowsocks或者VPN等网络工具，以实现无论在路由器内部还是连接路由器的设备无需任何设置即可翻墙，可以使用这个自动配置脚本[pdnsd-ss-iptables.sh](https://github.com/scola/twittrouter/blob/master/config/pdnsd-ss-iptables.sh)，如果你碰巧使用TP-Link 703n这款路由器，也可使用[编译一个tplink-703n自动凸墙的openwrt固件](http://scola.github.io/build-openwrt-firmware-within-shadowsocks-and-twittrouter/),配置好网络和简单测试是否OK
+因为twitter api被墙，需要使用shadowsocks或者VPN等网络工具，以实现无论在路由器内部还是连接路由器的设备无需任何设置即可翻墙，可以使用这个自动配置脚本[pdnsd-ss-iptables.sh](https://github.com/scola/twittrouter/blob/master/config/pdnsd-ss-iptables.sh)，此脚本已打包在twittrouter里，你可以在/etc/config/下找到,如果你碰巧使用TP-Link 703n这款路由器，也可使用[编译一个tplink-703n自动凸墙的openwrt固件](http://scola.github.io/build-openwrt-firmware-within-shadowsocks-and-twittrouter/),配置好网络和简单测试是否OK
 {% highlight sh %}
 twittrouter -u kfc    #测试网络及授权
 {% endhighlight %}

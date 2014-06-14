@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "更新twittrouter，增加授权模式和去除对net-tools-arp的依赖"
+title: "更新twittrouter，增加授权模式"
 category: 日志
 tags: openwrt twittrouter gfw shadowsocks
 ---

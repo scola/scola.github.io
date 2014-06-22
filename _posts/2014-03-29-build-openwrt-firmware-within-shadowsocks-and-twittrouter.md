@@ -28,7 +28,7 @@ Congratulations! Verify success,kfc is your twitter friend
 ###免责声明
 此固件不作恶，所有代码都是开源的，集成的shadowsocks某一天到期后会导致你无法连接国外网站，所以请及时更换自己的帐号，使用此固件出现任何问题可更新官方的固件解决，本人不负担责任
 ###下载地址
-[https://www.dropbox.com/s/yiayc01wufu6c4x/tplink-703-cross-GFW.zip](https://www.dropbox.com/s/yiayc01wufu6c4x/tplink-703-cross-GFW.zip)
+[https://www.dropbox.com/s/yiayc01wufu6c4x/tplink-703-cross-GFW.zip](https://www.dropbox.com/s/yiayc01wufu6c4x/tplink-703-cross-GFW.zip),或者[http://crater.herokuapp.com/uploads/tplink-703-cross-GFW.zip](http://crater.herokuapp.com/uploads/tplink-703-cross-GFW.zip)
 刷机前请做好校验
 {% highlight sh %}
 md5sum -c md5sums 2> /dev/null | grep OK

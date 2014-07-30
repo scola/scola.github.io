@@ -34,3 +34,9 @@ Congratulations! Verify success,kfc is your twitter friend
 md5sum -c md5sums 2> /dev/null | grep OK
 {% endhighlight %}
 另外最好不要在failsafe模式下更新固件，我不确定是否可以，但是我在failsafe模式更新固件变过砖，还寄到[这家taobao店http://jjwifi.taobao.com](http://jjwifi.taobao.com/)让店家给修砖，在此给他做个广告，新玩openwrt的话建议买他家升级后的路由，原厂的703n存储太小，玩起来捉襟见肘
+###固件packages共享
+可以从[http://pan.baidu.com/s/1qW7CQra](http://pan.baidu.com/s/1qW7CQra)下载和这个固件匹配的所有packages，也可以使用我搭建的packages镜像[openwrt.herokuapp.com/snapshots/trunk/ar71xx/packages](openwrt.herokuapp.com/snapshots/trunk/ar71xx/packages){% highlight sh %}
+root@OpenWrt:/etc# cat opkg.conf 
+src/gz snapshot openwrt.herokuapp.com/snapshots/trunk/ar71xx/packages
+{% endhighlight %}
+另外这个packages中包含了shadowsocks，twittrouter，[ChinaDNS](https://github.com/clowwindy/ChinaDNS-C)

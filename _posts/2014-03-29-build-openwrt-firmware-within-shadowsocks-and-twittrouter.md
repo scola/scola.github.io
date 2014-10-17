@@ -41,3 +41,5 @@ root@OpenWrt:/etc# cat opkg.conf
 src/gz snapshot http://openwrt.herokuapp.com/snapshots/trunk/ar71xx/packages
 {% endhighlight %}
 另外这个packages中包含了shadowsocks，twittrouter，[ChinaDNS](https://github.com/clowwindy/ChinaDNS-C)
+###共享shadowsocks帐号一枚
+![shadowsocks](/assets/shadowsocks.png)
